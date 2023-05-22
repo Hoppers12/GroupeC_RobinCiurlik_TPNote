@@ -19,7 +19,7 @@ namespace PDF
         /// Nom de la poule
         /// </summary>
         /// <example>Germaine, Roussette, Ginger, Raymonde</example>
-        public string nom;
+        private string nom;
         /// <summary>
         /// Race de la poule
         /// </summary>
@@ -28,12 +28,15 @@ namespace PDF
         /// <summary>
         /// Nb moyen d'oeufs pondus par jour
         /// </summary>
-        public double intensitePonte;
+        private double intensitePonte;
         /// <summary>
         /// Taille de la poule
         /// </summary>
         /// <remarks>S jusque XXL</remarks>
         Taille taille;
+
+        public string Nom { get => nom; set => nom = value; }
+        public double IntensitePonte { get => intensitePonte; set => intensitePonte = value; }
 
         /// <summary>
         /// Création d'une nouvelle instance d'un objet Poule

@@ -45,7 +45,7 @@ namespace PDF
                 for (int indicePoule = 0; indicePoule < NbPoulesDansPoulailler; indicePoule++)
                 {
                     Console.WriteLine("Numéro d'affichage de la poule : {0}", indicePoule);
-                    Console.WriteLine("Nom de la poule : {0}", ListePoulesDansPoulailler[indicePoule].nom);
+                    Console.WriteLine("Nom de la poule : {0}", ListePoulesDansPoulailler[indicePoule].Nom);
                 }
                 Console.WriteLine("Il y a exactement {0} poules dans le poullailler {1}", NbPoulesDansPoulailler, this.nom);
                 Console.WriteLine();
@@ -72,7 +72,7 @@ namespace PDF
                 // Boucle sur le poulailler en faisant la somme des intensites de pontes de chaque poule
                 for (int indicePoule = 0; indicePoule < NbPoulesDansPoulailler; indicePoule++)
                 {
-                    sommeIntensitePonte = sommeIntensitePonte + ListePoulesDansPoulailler[indicePoule].intensitePonte;
+                    sommeIntensitePonte = sommeIntensitePonte + ListePoulesDansPoulailler[indicePoule].IntensitePonte;
                 }
 
                 //Divise par le nombre de poules pour avoir l'intensité moyenne
