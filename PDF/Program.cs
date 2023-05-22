@@ -20,4 +20,9 @@ poulailler1.AjouterPoule(poule2);
 poulailler1.AjouterPoule(poule3);
 poulailler1.AjouterPoule(poule4);
 
+
+
 poulailler1.affichePoulesDuPoulailler();
+poulailler1.supprimerUnePoule(3);
+poulailler1.affichePoulesDuPoulailler();
+poulailler1.intensitePontePoulailler();

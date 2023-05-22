@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ namespace PDF
         string nom;
         int Capacite;
         int NbPoulesDansPoulailler ;
-        Poule[] ListePoulesDansPoulailler;
+        List<Poule> ListePoulesDansPoulailler;
 
 
         /// <summary>
@@ -25,18 +26,18 @@ namespace PDF
         {
             nom = nomPoulailler;
             Capacite = CapaciteMax;
-            NbPoulesDansPoulailler = 0;
-            ListePoulesDansPoulailler = new Poule[Capacite];
+            ListePoulesDansPoulailler = new List<Poule>();
+            
         }
 
         public void AjouterPoule(Poule pouleAAjouter)
         {
-            ListePoulesDansPoulailler[NbPoulesDansPoulailler] = pouleAAjouter;
-            NbPoulesDansPoulailler++;
+            ListePoulesDansPoulailler.Add(pouleAAjouter);
         }
 
         public void affichePoulesDuPoulailler()
         {
+            NbPoulesDansPoulailler = ListePoulesDansPoulailler.Count();
             for (int indicePoule = 0; indicePoule < NbPoulesDansPoulailler; indicePoule++)
             {
                 Console.WriteLine("Numéro d'affichage de la poule : {0}", indicePoule);
@@ -46,8 +47,24 @@ namespace PDF
         }
 
         
-        public void supprimerUnePoule(int numeroAffichage) { 
+        public void supprimerUnePoule(int numeroAffichage) {
 
+            ListePoulesDansPoulailler.RemoveAt(numeroAffichage);
+        }
+
+        public void intensitePontePoulailler()
+        {
+            double sommeIntensitePonte = 0;
+            double moyenneIntensitePonte;
+            for (int indicePoule = 0; indicePoule < NbPoulesDansPoulailler; indicePoule++)
+            {
+                sommeIntensitePonte = sommeIntensitePonte + ListePoulesDansPoulailler[indicePoule].intensitePonte;
+            }
+
+            moyenneIntensitePonte = sommeIntensitePonte / NbPoulesDansPoulailler;
+
+
+            Console.WriteLine("L'intensité de ponte moyenne de {0} est de {1} ", nom, moyenneIntensitePonte);
         }
 
     }
@@ -71,7 +88,7 @@ namespace PDF
         /// <summary>
         /// Nb moyen d'oeufs pondus par jour
         /// </summary>
-        double intensitePonte;
+        public double intensitePonte;
         /// <summary>
         /// Taille de la poule
         /// </summary>
