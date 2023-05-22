@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static PDF.Taille;
+
 
 namespace PDF
 {
@@ -10,7 +12,7 @@ namespace PDF
     {
         string nom;
         int Capacite;
-        int NbPoulesDansPoulailler;
+        int NbPoulesDansPoulailler ;
         Poule[] ListePoulesDansPoulailler;
 
 
@@ -27,21 +29,30 @@ namespace PDF
             ListePoulesDansPoulailler = new Poule[Capacite];
         }
 
-        void AjouterPoule(Poule pouleAAjouter)
+        public void AjouterPoule(Poule pouleAAjouter)
         {
             ListePoulesDansPoulailler[NbPoulesDansPoulailler] = pouleAAjouter;
             NbPoulesDansPoulailler++;
         }
 
-        void affichePoulesDuPoulailler ()
+        public void affichePoulesDuPoulailler()
         {
             for (int indicePoule = 0; indicePoule < NbPoulesDansPoulailler; indicePoule++)
             {
-                Console.WriteLine("Numéro d'affichage de la poule : ",indicePoule," ",ListePoulesDansPoulailler[indicePoule]);
+                Console.WriteLine("Numéro d'affichage de la poule : {0}", indicePoule);
+                Console.WriteLine("Nom de la poule : {0}", ListePoulesDansPoulailler[indicePoule].nom);
             }
+            Console.WriteLine("Il y a exactement {0} poules dans le poullailler {1}", NbPoulesDansPoulailler, this.nom);
+        }
+
+        
+        public void supprimerUnePoule(int numeroAffichage) { 
+
         }
 
     }
+
+
     /// <summary>
     /// Modélise une poule
     /// </summary>
@@ -51,7 +62,7 @@ namespace PDF
         /// Nom de la poule
         /// </summary>
         /// <example>Germaine, Roussette, Ginger, Raymonde</example>
-        string nom;
+        public string nom;
         /// <summary>
         /// Race de la poule
         /// </summary>
@@ -89,9 +100,9 @@ namespace PDF
         {
             Console.WriteLine($"{nom} ({race})");
         }
-    }
-     main()
-    {
 
-    }
+
+        }
+   
+  
 }
