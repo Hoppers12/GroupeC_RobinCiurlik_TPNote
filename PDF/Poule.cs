@@ -6,6 +6,42 @@ using System.Threading.Tasks;
 
 namespace PDF
 {
+    public class Poulailler
+    {
+        string nom;
+        int Capacite;
+        int NbPoulesDansPoulailler;
+        Poule[] ListePoulesDansPoulailler;
+
+
+        /// <summary>
+        /// Création d'une nouvelle instance d'un objet poulailler
+        /// </summary>
+        /// <param name="nomPoulailler">Nom du poulailler</param>
+        /// <param name="CapaciteMax">Capacité du poulailler</param>
+        public Poulailler(string nomPoulailler, int CapaciteMax)
+        {
+            nom = nomPoulailler;
+            Capacite = CapaciteMax;
+            NbPoulesDansPoulailler = 0;
+            ListePoulesDansPoulailler = new Poule[Capacite];
+        }
+
+        void AjouterPoule(Poule pouleAAjouter)
+        {
+            ListePoulesDansPoulailler[NbPoulesDansPoulailler] = pouleAAjouter;
+            NbPoulesDansPoulailler++;
+        }
+
+        void affichePoulesDuPoulailler ()
+        {
+            for (int indicePoule = 0; indicePoule < NbPoulesDansPoulailler; indicePoule++)
+            {
+                Console.WriteLine("Numéro d'affichage de la poule : ",indicePoule," ",ListePoulesDansPoulailler[indicePoule]);
+            }
+        }
+
+    }
     /// <summary>
     /// Modélise une poule
     /// </summary>
@@ -53,5 +89,9 @@ namespace PDF
         {
             Console.WriteLine($"{nom} ({race})");
         }
+    }
+     main()
+    {
+
     }
 }
